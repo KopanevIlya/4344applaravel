@@ -27,6 +27,7 @@ const showingNavigationDropdown = ref(false);
                                         class="block h-9 w-auto fill-current text-gray-800"
                                     />
                                 </Link>
+                               
                             </div>
 
                             <!-- Navigation Links -->
@@ -39,6 +40,22 @@ const showingNavigationDropdown = ref(false);
                                 >
                                     Dashboard
                                 </NavLink>
+
+
+                                <NavLink
+                                    :href="route('books.index')"
+                                    :active="route().current('books.index')"
+                                >
+                                    Каталог
+                                </NavLink>
+
+                                <NavLink
+                                    :href="route('books.create')"
+                                    :active="route().current('books.create')"
+                                >
+                                    Внесение
+                                </NavLink>
+                            
                             </div>
                         </div>
 
@@ -145,6 +162,19 @@ const showingNavigationDropdown = ref(false);
                             :active="route().current('dashboard')"
                         >
                             Dashboard
+                        </ResponsiveNavLink>
+
+                        <ResponsiveNavLink
+                            :href="route('books.index')"
+                            :active="route().current('books.index')"
+                        >
+                            Каталог
+                        </ResponsiveNavLink>
+                        <ResponsiveNavLink
+                            :href="route('books.create')"
+                            :active="route().current('books.create')"
+                        >
+                            Внесение
                         </ResponsiveNavLink>
                     </div>
 
