@@ -1,6 +1,7 @@
 <script setup>
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import { Head } from '@inertiajs/vue3';
+import { Link, router } from '@inertiajs/vue3';
 
 const people = [
   {
@@ -72,6 +73,13 @@ const tiers = [
 
 defineProps({books:Array})
 
+function destroy(id){
+    if (confirm(`Удалить книгу?`)){
+        router.delete(`/books/${id}`);
+    }
+   
+}
+
 </script>
 
 <template>
@@ -94,6 +102,8 @@ defineProps({books:Array})
                 <h2>{{ book.title }}</h2>
                 <h2>{{ book.author }}</h2>
                 <h2>{{ book.description }}</h2>
+                <Link :href="`/books/${book.id}/edit`">Редактировать</Link>
+        <button @click="destroy(book.id)" style="color:red;">Удалить</button>
 
             </li>
         </ul>
